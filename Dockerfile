@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER Jason Wilder <jason@influxdb.com>
+MAINTAINER lihy <lihy@axatp.com>
 
 RUN apt-get update
 RUN apt-get install -y wget python python-pip python-dev libssl-dev libffi-dev bash
