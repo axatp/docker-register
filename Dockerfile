@@ -1,8 +1,8 @@
-FROM ubuntu:14.04
+FROM centos:7
 MAINTAINER lihy <lihy@axatp.com>
 
-RUN apt-get update
-RUN apt-get install -y wget python python-pip python-dev libssl-dev libffi-dev bash
+RUN yum -y install epel-release
+RUN yum install -y wget python python-pip python-dev libssl-dev libffi-dev bash
 
 RUN mkdir /app
 WORKDIR /app
