@@ -47,7 +47,7 @@ if "/" in "{{ $value.Image.Repository }}":
 else:
 	image_name = "{{ $value.Image.Repository }}"
 	
-if "@" in image_name
+if "@" in image_name:
 	image_name = image_name.split('@')[0]
 
 	
