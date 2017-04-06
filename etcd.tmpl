@@ -54,6 +54,10 @@ key_path = "%s/%s" % (tag_dir, container_id)
 print("registering %s" % key_path)
 client.write(key_path, "{{ $address.HostIP }}:{{ $address.HostPort }}", ttl=15)
 #client.write("/backends/{{ $value.Image.Repository}}/port", "{{ $address.Port }}", ttl=15)
+# {{ $value.Name }}
+# {{ $local.Env.HOST_IP }}
+# {{ $value.Name }}
+
 
 {{ end }}
 {{ end }}
