@@ -35,6 +35,8 @@ ensuredir(base_dir)
 
 {{ if $address.HostPort}}
 
+
+app_name = "{{ $value.Name }}"
 if "." in "{{ $value.Name }}":
 	app_name = "{{ $value.Name }}".split('.')[1]
 else:
