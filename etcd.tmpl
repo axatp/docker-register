@@ -37,8 +37,10 @@ ensuredir(base_dir)
 
 
 app_Name = "{{ $value.Name }}"
+# {{ {{printf "%.*s" 12 $value.Name}} }}
 if "." in "{{ $value.Name }}":
 	app_Name = "{{ $value.Name }}".split('.')[1]
+	# {{ {{printf "%.*s" 12 $app_Name}} }}
 else:
 	app_Name = "{{ $value.Name }}"
 	
