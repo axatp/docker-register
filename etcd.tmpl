@@ -36,11 +36,11 @@ ensuredir(base_dir)
 {{ if $address.HostPort}}
 
 
-app_name = "{{ $value.Name }}"
+app_Name = "{{ $value.Name }}"
 if "." in "{{ $value.Name }}":
-	app_name = "{{ $value.Name }}".split('.')[1]
+	app_Name = "{{ $value.Name }}".split('.')[1]
 else:
-	app_name = "{{ $value.Name }}"
+	app_Name = "{{ $value.Name }}"
 	
 
 if "/" in "{{ $value.Image.Repository }}":
@@ -64,7 +64,7 @@ print("registering %s" % key_path)
 client.write(key_path, "{{ $local.Env.HOST_IP }}:{{ $address.HostPort }}", ttl=15)
 #client.write("/backends/{{ $value.Image.Repository}}/port", "{{ $address.Port }}", ttl=15)
 # {{ $value.Name }}
-# {{ $app_name }}
+# {{ $app_Name }}
 # {{ $value.Name }}
 
 
