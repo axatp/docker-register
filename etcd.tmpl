@@ -47,6 +47,10 @@ if "/" in "{{ $value.Image.Repository }}":
 else:
 	image_name = "{{ $value.Image.Repository }}"
 	
+if "@" in image_name
+	image_name = image_name.split('@')[0]
+
+	
 image_tag = "{{ $value.Image.Tag }}"
 
 image_dir = "%s/%s" % (base_dir, image_name)
