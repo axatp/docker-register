@@ -36,15 +36,11 @@ ensuredir(base_dir)
 {{ if $address.HostPort}}
 
 
-app_name = "{{ $value.Name }}"
-# {{printf $value.Name}}
 if "." in "{{ $value.Name }}":
 	app_name = "{{ $value.Name }}".split('.')[1]
-	#  "{{ $value.Name }}".split('.')[1]
 else:
 	app_name = "{{ $value.Name }}"
 
-print app_name	
 
 if "/" in "{{ $value.Image.Repository }}":
 	image_name = "{{ $value.Image.Repository }}".split('/')[1]
@@ -54,14 +50,15 @@ else:
 image_tag = "{{ $value.Image.Tag }}"
 
 image_dir = "%s/%s" % (base_dir, image_name)
-tag_dir = "%s/%s" % (image_dir, image_tag)
+#tag_dir = "%s/%s" % (image_dir, image_tag)
+app_dir = "%s/%s" % (image_dir, app_name)
 
 ensuredir(image_dir)
-ensuredir(tag_dir)
+ensuredir(app_dir)
 
 container_id = "{{printf "%.*s" 12 $value.ID}}"
 #container_id = "{{ $value.ID }}"
-key_path = "%s/%s" % (tag_dir, container_id)
+key_path = "%s/%s" % (app_dir, container_id)
 
 print("registering %s" % key_path)
 client.write(key_path, "{{ $local.Env.HOST_IP }}:{{ $address.HostPort }}", ttl=15)
