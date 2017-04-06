@@ -36,13 +36,13 @@ ensuredir(base_dir)
 {{ if $address.HostPort}}
 
 
-app_Name = "{{ $value.Name }}"
+app_name = "{{ $value.Name }}"
 # {{printf $value.Name}}
 if "." in "{{ $value.Name }}":
-	app_Name = "{{ $value.Name }}".split('.')[1]
-	# {{printf $app_Name }}
+	app_name = "{{ $value.Name }}".split('.')[1]
+	#  "{{ $value.Name }}".split('.')[1]
 else:
-	app_Name = "{{ $value.Name }}"
+	app_name = "{{ $value.Name }}"
 	
 
 if "/" in "{{ $value.Image.Repository }}":
