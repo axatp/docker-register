@@ -37,7 +37,7 @@ ensuredir(base_dir)
 
 
 if "." in "{{ $value.Name }}":
-	app_name = "{{ $value.Name }}".split('.')[1]
+	app_name = "{{ $value.Name }}".split('.')[0]
 else:
 	app_name = "{{ $value.Name }}"
 
