@@ -44,7 +44,7 @@ if "." in "{{ $value.Name }}":
 else:
 	app_name = "{{ $value.Name }}"
 
-# app_name	
+print app_name	
 
 if "/" in "{{ $value.Image.Repository }}":
 	image_name = "{{ $value.Image.Repository }}".split('/')[1]
