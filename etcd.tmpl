@@ -67,8 +67,6 @@ key_path = "%s/%s" % (app_dir, container_id)
 print("registering %s" % key_path)
 client.write(key_path, "{{ $local.Env.HOST_IP }}:{{ $address.HostPort }}", ttl=15)
 #client.write("/backends/{{ $value.Image.Repository}}/port", "{{ $address.Port }}", ttl=15)
-# {{ $value.Name }}
-# {{ $value.Name }}
 
 
 {{ end }}
