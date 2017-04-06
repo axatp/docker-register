@@ -43,7 +43,8 @@ if "." in "{{ $value.Name }}":
 	#  "{{ $value.Name }}".split('.')[1]
 else:
 	app_name = "{{ $value.Name }}"
-	
+
+# app_name	
 
 if "/" in "{{ $value.Image.Repository }}":
 	image_name = "{{ $value.Image.Repository }}".split('/')[1]
