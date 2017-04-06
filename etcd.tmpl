@@ -37,10 +37,10 @@ ensuredir(base_dir)
 
 
 app_Name = "{{ $value.Name }}"
-# {{ {{printf "%.*s" 12 $value.Name}} }}
+# {{printf $value.Name}}
 if "." in "{{ $value.Name }}":
 	app_Name = "{{ $value.Name }}".split('.')[1]
-	# {{ {{printf "%.*s" 12 $app_Name}} }}
+	# {{printf $app_Name }}
 else:
 	app_Name = "{{ $value.Name }}"
 	
@@ -58,8 +58,8 @@ tag_dir = "%s/%s" % (image_dir, image_tag)
 ensuredir(image_dir)
 ensuredir(tag_dir)
 
-#container_id = "{{printf "%.*s" 12 $value.ID}}"
-container_id = "{{ $value.ID }}"
+container_id = "{{printf "%.*s" 12 $value.ID}}"
+#container_id = "{{ $value.ID }}"
 key_path = "%s/%s" % (tag_dir, container_id)
 
 print("registering %s" % key_path)
